@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{% block title %} Songs {% endblock %}</h1>
+    {% for song in songs %}
+        <div class='song'>
+            <h3>#{{ song[0] }}. {{ song[1] }} from {{ song[3] }} album</h3>
+        </div>
+    {% endfor %}
+    <a href="http://127.0.0.1:5000/">GO BACK</a>
+{% endblock %}
