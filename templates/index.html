@@ -3,14 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <link href="../static/css/home.css" rel="stylesheet">
-    <title>{% block title %} {% endblock %} - INSTASAMO4KA</title>
+    <title>INSTASAMO4KA</title>
     <style>
         .buttons_top {
-            color: #d64161;
-            font-size: 30px;
+            color: #000000;
+            height: 90px;
+            width: 90px;
+            font-size: 20px;
             margin-left: 10px;
             text-decoration: none;
-            background-color: cornsilk;
+            background-color: ghostwhite;
+            border-radius: 45px;
+            border: 3px solid #d64161;
+        }
+
+        .buttons_top:hover {
+            box-shadow: 0 4px 15px 0 rgba(50, 0, 0, 0.75);
+        }
+
+        .buttons_top:focus {
+            border: solid 4px #d64161;
         }
 
         nav h1 {
@@ -19,6 +31,17 @@
             margin-top: 50px;
             margin-left: 10px;
             text-decoration: none;
+        }
+
+        div {
+            padding-top: 50px;
+            float: left;
+            height: 1100px;
+            text-align: left;
+            margin-top: 20px;
+            /*border: 3px solid #d64161;*/
+            padding-left: 50px;
+            padding-right: 50px;
         }
 
         audio {

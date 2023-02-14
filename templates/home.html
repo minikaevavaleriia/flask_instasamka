@@ -68,7 +68,6 @@
         }
 
         audio {
-            color: #d64161;
         }
 
         .best_songs {
@@ -152,18 +151,18 @@
     </nav>
     <hr>
     <div class="wrapper">
-        {% block content %}
-            <div class="div1" id="left">
-                <button onclick="location.href='http://127.0.0.1:5000/music'" type="button" class="best_songs" id="music">
-        Best songs by DaShA</button>
-                {% for song in songs %}
-                    <div class='song'>
-                        <h3>{{ song[1] }}</h3>
-                        <audio src="" controls></audio>
-                    </div>
-                {% endfor %}
-            </div>
-        {% endblock %}
+
+        <div class="div1" id="left">
+            <button onclick="location.href='http://127.0.0.1:5000/music'" type="button" class="best_songs" id="to_music">
+    Best songs by DaShA</button>
+            {% for song in songs %}
+                <div class='song'>
+                    <h3>{{ song[1] }}</h3>
+                    <audio src="" controls></audio>
+                </div>
+            {% endfor %}
+        </div>
+
 
         <div class="div1" id="middle">
         </div>
