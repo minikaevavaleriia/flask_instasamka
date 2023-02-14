@@ -1,11 +1,58 @@
-{% extends 'base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="../static/css/home.css" rel="stylesheet">
+    <title>{% block title %} {% endblock %} - INSTASAMO4KA</title>
+    <style>
+        .buttons_top {
+            color: #d64161;
+            font-size: 30px;
+            margin-left: 10px;
+            text-decoration: none;
+            background-color: cornsilk;
+        }
 
-{% block content %}
-    <h1>{% block title %} Songs {% endblock %}</h1>
-    {% for song in songs %}
-        <div class='song'>
-            <h3>#{{ song[0] }}. {{ song[1] }} from {{ song[3] }} album</h3>
-        </div>
-    {% endfor %}
-    <a href="http://127.0.0.1:5000/">GO BACK</a>
-{% endblock %}
+        nav h1 {
+            color: #d64161;
+            font-size: 8em;
+            margin-top: 50px;
+            margin-left: 10px;
+            text-decoration: none;
+        }
+
+        audio {
+            color: #d64161;
+        }
+
+    </style>
+</head>
+<body>
+    <nav>
+        <button onclick="location.href='http://127.0.0.1:5000/home'" type="button" class="buttons_top">
+        Home</button>
+        <button onclick="location.href='http://127.0.0.1:5000/music'" type="button" class="buttons_top">
+        Music</button>
+        <button onclick="location.href='http://127.0.0.1:5000/tours'" type="button" class="buttons_top">
+        Tours</button>
+        <button onclick="location.href='http://127.0.0.1:5000/forum'" type="button" class="buttons_top">
+        Forum</button>
+        <button onclick="location.href='http://127.0.0.1:5000/calc'" type="button" class="buttons_top">
+        Calc</button>
+        <button onclick="location.href='http://127.0.0.1:5000/login'" type="button" class="buttons_top">
+        Log in</button>
+
+    </nav>
+    <hr>
+    <div class="wrapper">
+        <h1>Songs</h1>
+        {% for song in songs %}
+            <div class='song'>
+                <h3>#{{ song[0] - 2 }}. {{ song[1] }} from {{ album[0][0] }} album</h3>
+            </div>
+        {% endfor %}
+        <a href="http://127.0.0.1:5000/">GO BACK</a>
+    </div>
+</body>
+</html>
+

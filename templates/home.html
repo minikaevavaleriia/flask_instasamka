@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="../static/css/home.css" rel="stylesheet">
+    <title>INSTASAMO4KA</title>
+    <style>
+        .buttons_top {
+            color: #000000;
+            height: 90px;
+            width: 90px;
+            font-size: 20px;
+            margin-left: 10px;
+            text-decoration: none;
+            background-color: ghostwhite;
+            border-radius: 45px;
+            border: 3px solid #d64161;
+        }
+
+        .buttons_top:hover {
+            box-shadow: 0 4px 15px 0 rgba(50, 0, 0, 0.75);
+        }
+
+        .buttons_top:focus {
+            border: solid 4px #d64161;
+        }
+
+        nav h1 {
+            color: #d64161;
+            font-size: 8em;
+            margin-top: 50px;
+            margin-left: 10px;
+            text-decoration: none;
+        }
+
+        #left {
+            padding-left: 50px;
+            /*padding-right: 50px;*/
+            width: 400px;
+            margin-right: 50px;
+            margin-left: 50px;
+        }
+
+        #middle {
+            /*padding-left: 50px;*/
+            /*padding-right: 50px;*/
+            width: 400px;
+
+        }
+
+        #right {
+            /*padding-left: 50px;*/
+            padding-right: 50px;
+            width: 430px;
+            margin-right: 50px;
+            margin-left: 50px;
+        }
+
+        .div1 {
+            padding-top: 50px;
+            float: left;
+            height: 1100px;
+            text-align: left;
+            margin-top: 20px;
+            border: 3px solid #d64161;
+            padding-left: 50px;
+            padding-right: 50px;
+        }
+
+        audio {
+            color: #d64161;
+        }
+
+        .best_songs {
+            width: 220px;
+            height: 50px;
+            border: none;
+            outline: none;
+            color: #fff;
+            background: #111;
+            cursor: pointer;
+            position: relative;
+            z-index: 0;
+            border-radius: 10px;
+        }
+
+        .best_songs:before {
+            content: '';
+            background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+            position: absolute;
+            top: -2px;
+            left:-2px;
+            background-size: 400%;
+            z-index: -1;
+            filter: blur(5px);
+            width: calc(100% + 4px);
+            height: calc(100% + 4px);
+            animation: glowing 20s linear infinite;
+            opacity: 0;
+            transition: opacity .3s ease-in-out;
+            border-radius: 10px;
+        }
+
+        .best_songs:active {
+            color: #000
+        }
+
+        .best_songs:active:after {
+            background: transparent;
+        }
+
+        .best_songs:hover:before {
+            opacity: 1;
+        }
+
+        .best_songs:after {
+            z-index: -1;
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: #111;
+            left: 0;
+            top: 0;
+            border-radius: 10px;
+        }
+
+        @keyframes glowing {
+            0% { background-position: 0 0; }
+            50% { background-position: 400% 0; }
+            100% { background-position: 0 0; }
+        }
+
+    </style>
+</head>
+<body>
+    <nav>
+        <button onclick="location.href='http://127.0.0.1:5000/home'" type="button" class="buttons_top" id="home">
+        Home</button>
+        <button onclick="location.href='http://127.0.0.1:5000/music'" type="button" class="buttons_top" id="music">
+        Music</button>
+        <button onclick="location.href='http://127.0.0.1:5000/tours'" type="button" class="buttons_top" id="tours">
+        Tours</button>
+        <button onclick="location.href='http://127.0.0.1:5000/forum'" type="button" class="buttons_top" id="forum">
+        Forum</button>
+        <button onclick="location.href='http://127.0.0.1:5000/calc'" type="button" class="buttons_top" id="calc">
+        Calc</button>
+        <button onclick="location.href='http://127.0.0.1:5000/login'" type="button" class="buttons_top" id="login">
+        Log in</button>
+
+    </nav>
+    <hr>
+    <div class="wrapper">
+        {% block content %}
+            <div class="div1" id="left">
+                <button onclick="location.href='http://127.0.0.1:5000/music'" type="button" class="best_songs" id="music">
+        Best songs by DaShA</button>
+                {% for song in songs %}
+                    <div class='song'>
+                        <h3>{{ song[1] }}</h3>
+                        <audio src="" controls></audio>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endblock %}
+
+        <div class="div1" id="middle">
+
+        </div>
+
+        <div class="div1" id="right">
+
+        </div>
+    </div>
+</body>
+</html>
